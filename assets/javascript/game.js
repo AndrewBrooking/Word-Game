@@ -13,7 +13,7 @@ class Game {
     }
 
     start() {
-        this.letters = [];
+        this.guesses = [];
         this.word = this.randomWord();
         this.incorrect = 5;
     }
@@ -23,9 +23,17 @@ class Game {
     }
 
     input(char) {
-        if (!this.letters.includes(char)) {
-            this.letters.push(char);
+        if (!this.guesses.includes(char)) {
+            this.guesses.push(char);
             this.guess(char);
+        }
+    }
+
+    guess(char) {
+        if (this.word.indexOf(char) >= 0) {
+            // TODO
+        } else {
+            this.incorrect--;
         }
     }
 }
