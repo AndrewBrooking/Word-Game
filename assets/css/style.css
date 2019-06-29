@@ -1,7 +1,4 @@
 body {
-    background-image: url("");
-    background-size: cover;
-    background-repeat: no-repeat;
     background-color: #444444;
     font-family: 'Saira', sans-serif;
 }
@@ -11,12 +8,17 @@ h1 {
 }
 
 .logo {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 #game {
     border: 2px solid #ff7100;
     color: white;
-    background-color: #22222288;
+    background-color: #222222;
+}
+
+#ship-img {
+    max-width: 200px;
+    max-height: 200px;
 }

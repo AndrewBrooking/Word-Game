@@ -24,10 +24,20 @@
             <div class="col"><img class="logo" src="https://edassets.org/static/img/ed-logos/elite-dangerous-clean.svg" alt="ED Logo"></div>
         </div>
 
-        <div class="container my-5 py-3" id="game">
-            <p>This is some testing text.</p>
-            <br>
-            <p>Please ignore!</p>
+        <div class="container my-5 p-3" id="game">
+            <div class="row">
+                <!-- Ship image and name -->
+                <div class="col text-center" id="">
+                    <h4>Previous Ship</h4>
+                    <span id="ship-img"></span>
+                    <span id="ship-name"></span>
+                </div>
+
+                <div class="col text-center">
+                    <span id="word"></span>
+                    <span id="guesses"></span>
+                </div>
+            </div>
         </div>
 
         <!-- Import Bootstrap JS -->
@@ -36,6 +46,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <!-- Import game JS -->
+        <script src="./assets/javascript/ship.js"></script>
         <script src="./assets/javascript/game.js"></script>
     </body>
 </html>
