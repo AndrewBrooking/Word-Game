@@ -7,33 +7,23 @@ class Ship {
 
     blankify() {
         let result = "";
-
-        for (let c of this.word) {
+        for (let c of this.name) {
             if (c !== " ") {
-                result = result + "_";
+                result += "_";
             } else {
-                result = result + " ";
+                result += " ";
             }
         }
-
         return result;
     }
 
-    containsLetter(char) {
-        for (let c of this.word) {
-            if (char === c) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     reveal(char, blankWord) {
-        for (let i = 0; i < this.word.length; i++) {
-            if (char === this.word[i]) {
-                blankWord[i] = char;
+        let result = blankWord;
+        for (let i = 0; i < this.name.length; i++) {
+            if (char === this.name[i]) {
+                result = blankWord.substr(0, i) + char + blankWord.substr(i + 1);
             }
         }
+        return result;
     }
 }

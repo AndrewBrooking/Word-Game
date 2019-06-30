@@ -1,6 +1,6 @@
 const ships = [
     new Ship("adder", "../images/adder.svg"),
-    new Ship("anaconda", "../images/adder.svg"),
+    new Ship("anaconda", "../images/anaconda.svg"),
     new Ship("asp axplorer", "../images/asp-explorer.svg"),
     new Ship("asp acout", "../images/asp-scout.svg"),
     new Ship("beluga liner", "../images/beluga.svg"),
@@ -34,6 +34,12 @@ class Game {
         this.losses = 0;
         this.shipImage = document.getElementById("ship-ing");
         this.shipName = document.getElementById("ship-name");
+        this.wordSpan = document.getElementById("word");
+        this.guessesSpan = document.getElementById("guesses");
+        this.guessesLeftSpan = document.getElementById("guesses-left");
+        this.winsSpan = document.getElementById("wins");
+        this.lossesSpan = document.getElementById("losses");
+        this.start();
     }
 
     start() {
@@ -41,38 +47,62 @@ class Game {
         this.currentShip = this.randomShip();
         this.word = this.currentShip.blankify();
         this.incorrect = 5;
+        this.display();
     }
 
     randomShip() {
         return ships[Math.floor(Math.random() * ships.length)];
     }
 
+    display() {
+        this.wordSpan.innerText = this.word;
+        this.guessesSpan.innerText = this.guesses;
+        this.guessesLeftSpan.innerText = this.incorrect;
+        this.winsSpan.innerText = this.wins;
+        this.lossesSpan.innerText = this.losses;
+    }
+
     input(char) {
         if (!this.guesses.includes(char)) {
             this.guesses.push(char);
             this.guess(char);
+            this.display();
         }
     }
 
     guess(char) {
-        if (this.currentShip.containsLetter(char)) {
+        if (this.currentShip.name.includes(char)) {
             this.word = this.currentShip.reveal(char);
-
-            if (!this.word.includes("_")) {
-                this.win();
-            }
         } else {
             this.incorrect--;
+        }
+
+        if (!this.word.includes("_")) {
+            this.win();
+        } else if (this.incorrect <= 0) {
+            this.lose();
         }
     }
 
     win() {
+        this.wins++;
+        this.shipImage.innerHTML = "<img src='" + this.currentShip.img + "' alt='" + this.currentShip.name + "'>"
+        this.shipName.innerText = this.currentShip.name;
+        this.start();
+    }
 
+    lose() {
+        this.losses++;
+        this.shipImage.innerHTML = "<img src='" + this.currentShip.img + "' alt='" + this.currentShip.name + "'>"
+        this.shipName.innerText = this.currentShip.name;
+        this.start();
     }
 }
 
 // Create a new game
 let game = new Game();
 
-// Hnalde user input
-document.onkeyup = game.input(event.key);
+// Handle user input
+document.onkeyup = function(event) {
+    game.input(event.key);
+}
