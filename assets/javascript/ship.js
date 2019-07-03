@@ -17,13 +17,7 @@ class Ship {
         return result;
     }
 
-    reveal(char, blankWord) {
-        let result = blankWord;
-        for (let i = 0; i < this.name.length; i++) {
-            if (char === this.name[i]) {
-                result = blankWord.substr(0, i) + char + blankWord.substr(i + 1);
-            }
-        }
-        return result;
+    display(imageElement) {
+        imageElement.innerHTML = "<img class='my-3 mx-3' src='" + this.img + "' alt='" + this.name + "'>";
     }
 }
