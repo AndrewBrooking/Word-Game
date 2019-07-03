@@ -16,24 +16,24 @@
 
         <title>Elite Ship Guesser</title>
     </head>
-    <body class="h-100">
+    <body class="w-100 h-100">
 
         <div class="jumbotron row mx-auto text-center">
-            <div class="col my-auto text-right"><img class="logo" src="https://edassets.org/static/img/ed-logos/elite-dangerous-clean.svg" alt="ED Logo"></div>
-            <div class="col text-center"><h1>Elite Ship Guesser</h1></div>
-            <div class="col my-auto text-left"><img class="logo" src="https://edassets.org/static/img/ed-logos/elite-dangerous-clean.svg" alt="ED Logo"></div>
+            <div class="col m-auto text-right"><img class="logo" src="https://edassets.org/static/img/ed-logos/elite-dangerous-clean.svg" alt="ED Logo"></div>
+            <div class="col m-auto text-center"><h1>Elite Ship Guesser</h1></div>
+            <div class="col m-auto text-left"><img class="logo" src="https://edassets.org/static/img/ed-logos/elite-dangerous-clean.svg" alt="ED Logo"></div>
         </div>
 
-        <div class="container my-5 px-3 pt-3 pb-5" id="game">
+        <div class="container mx-auto my-5 p-3" id="game-container">
             <div class="row">
 
                 <!-- Word game -->
-                <div class="col text-center">
+                <div class="col-lg-6 col-md-12 text-center" id="game-col">
                     <div class="row text-center">
-                        <h4 class="col"><u>Word Game</u></h4>
+                        <h4 class="col mx-5 pb-2">Word Game</h4>
                     </div>
 
-                    <div class="row text-center">
+                    <div class="row my-2 text-center">
                         <span class="col" id="word"></span>
                     </div>
 
@@ -47,29 +47,27 @@
 
                     <div class="row">
                         <div class="col text-right">Incorrect: </div>
-                        <div class="col text-left" id="guesses-left"></div>
+                        <div class="col" id="guesses-left"></div>
                     </div>
 
                     <div class="row">
                         <div class="col text-right">Wins: </div>
-                        <div class="col text-left" id="wins">0</div>
+                        <div class="col" id="wins">0</div>
                     </div>
 
                     <div class="row">
                         <div class="col text-right">Losses: </div>
-                        <div class="col text-left" id="losses">0</div>
+                        <div class="col" id="losses">0</div>
                     </div>
                 </div>
 
-                <div class="my-1 text-center" id="vert-line"></div>
-
                 <!-- Ship image and name -->
-                <div class="col text-center">
+                <div class="col-lg-6 col-md-12 text-center">
                     <div class="row">
-                        <h4 class="col"><u>Previous Ship</u></h4>
+                        <h4 class="col mx-5 pb-2">Previous Ship</h4>
                     </div>
-                    <div class="row" id="ship-img">
-                        
+                    <div class="row mx-auto my-2 px-4 py-2" id="ship-img">
+                        <img src="./assets/images/unknown.svg" alt="?">
                     </div>
                 </div>
             </div>

@@ -18,6 +18,6 @@ class Ship {
     }
 
     display(imageElement) {
-        imageElement.innerHTML = "<img class='my-3 mx-3' src='" + this.img + "' alt='" + this.name + "'>";
+        imageElement.innerHTML = "<img src='" + this.img + "' alt='" + this.name + "'>";
     }
 }
